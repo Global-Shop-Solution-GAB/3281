@@ -1,0 +1,592 @@
+Program.Sub.ScreenSU.Start
+gui.SS_Form1..create
+gui.SS_Form1..caption("Payroll Export")
+gui.SS_Form1..size(4135,2440)
+gui.SS_Form1..position(0,0)
+gui.SS_Form1..event(unload,ss_form1_unload)
+gui.SS_Form1..alwaysontop(False)
+gui.SS_Form1..fontname("Arial")
+gui.SS_Form1..fontsize(8)
+gui.SS_Form1..forecolor(0)
+gui.SS_Form1..fontstyle(,,,,)
+gui.SS_Form1..BackColor(-2147483633)
+gui.SS_Form1..controlbox(True)
+gui.SS_Form1..maxbutton(False)
+gui.SS_Form1..minbutton(False)
+gui.SS_Form1..mousepointer(0)
+gui.SS_Form1..moveable(True)
+gui.SS_Form1..sizeable(False)
+gui.SS_Form1..ShowInTaskBar(True)
+gui.SS_Form1..titlebar(True)
+gui.SS_Form1.lbl_dtpBegPayDate.create(label,"Pay Period Start Date",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.dtpBegPayDate.create(datepicker)
+gui.SS_Form1.dtpBegPayDate.visible(True)
+gui.SS_Form1.dtpBegPayDate.size(1800,345)
+gui.SS_Form1.dtpBegPayDate.zorder(0)
+gui.SS_Form1.dtpBegPayDate.position(100,335)
+gui.SS_Form1.dtpBegPayDate.enabled(True)
+gui.SS_Form1.dtpBegPayDate.checkbox(False)
+gui.SS_Form1.lbl_dtpEndPayDate.create(label,"Pay Period End Date",True,1800,200,1,1985,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.dtpEndPayDate.create(datepicker)
+gui.SS_Form1.dtpEndPayDate.visible(True)
+gui.SS_Form1.dtpEndPayDate.size(1800,345)
+gui.SS_Form1.dtpEndPayDate.zorder(0)
+gui.SS_Form1.dtpEndPayDate.position(1985,335)
+gui.SS_Form1.dtpEndPayDate.enabled(True)
+gui.SS_Form1.dtpEndPayDate.checkbox(False)
+gui.SS_Form1.lbl_txtFileLocation.create(label,"File Name",True,1800,200,1,100,850,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.txtFileLocation.create(textbox,"",True,2310,330,1,100,1050,True,0,Arial,8,16777215,1)
+gui.SS_Form1.cmd_txtFileLocation.create(button)
+gui.SS_Form1.cmd_txtFileLocation.caption("^")
+gui.SS_Form1.cmd_txtFileLocation.visible(True)
+gui.SS_Form1.cmd_txtFileLocation.size(330,345)
+gui.SS_Form1.cmd_txtFileLocation.zorder(0)
+gui.SS_Form1.cmd_txtFileLocation.position(2500,1050)
+gui.SS_Form1.cmd_txtFileLocation.enabled(True)
+gui.SS_Form1.cmd_txtFileLocation.fontname("Arial")
+gui.SS_Form1.cmd_txtFileLocation.fontsize(8)
+gui.SS_Form1.cmd_txtFileLocation.event(click,cmdsavedialog_click)
+gui.SS_Form1.cmdCreate.create(button)
+gui.SS_Form1.cmdCreate.caption("Create")
+gui.SS_Form1.cmdCreate.visible(True)
+gui.SS_Form1.cmdCreate.size(1000,360)
+gui.SS_Form1.cmdCreate.zorder(0)
+gui.SS_Form1.cmdCreate.position(100,1465)
+gui.SS_Form1.cmdCreate.enabled(True)
+gui.SS_Form1.cmdCreate.fontname("Arial")
+gui.SS_Form1.cmdCreate.fontsize(8)
+gui.SS_Form1.cmdCreate.event(click,cmdcreate_click)
+gui.SS_Form1.dtpBegPayDate.tabstop(true)
+gui.SS_Form1.dtpBegPayDate.tabindex(1)
+gui.SS_Form1.dtpEndPayDate.tabstop(true)
+gui.SS_Form1.dtpEndPayDate.tabindex(2)
+gui.SS_Form1.txtFileLocation.tabstop(true)
+gui.SS_Form1.txtFileLocation.tabindex(3)
+gui.SS_Form1.cmd_txtFileLocation.tabstop(true)
+gui.SS_Form1.cmd_txtFileLocation.tabindex(4)
+gui.SS_Form1.cmdCreate.tabstop(true)
+gui.SS_Form1.cmdCreate.tabindex(5)
+
+
+gui.F_Main1..create
+gui.F_Main1..caption("Create Paychoice Upload File")
+gui.F_Main1..size(6375,3060)
+gui.F_Main1..position(0,0)
+gui.F_Main1..event(unload,f_main1_unload)
+gui.F_Main1..alwaysontop(False)
+gui.F_Main1..fontname("Arial")
+gui.F_Main1..fontsize(8)
+gui.F_Main1..forecolor(0)
+gui.F_Main1..fontstyle(,,,,)
+gui.F_Main1..BackColor(-2147483633)
+gui.F_Main1..controlbox(True)
+gui.F_Main1..maxbutton(True)
+gui.F_Main1..minbutton(True)
+gui.F_Main1..mousepointer(0)
+gui.F_Main1..moveable(True)
+gui.F_Main1..sizeable(True)
+gui.F_Main1..ShowInTaskBar(True)
+gui.F_Main1..titlebar(True)
+gui.F_Main1.lbl1.create(label,"PayChoice Upload File Path",True,2115,255,1,100,1200,True,0,Arial,8,-2147483633,0)
+gui.F_Main1.txtFilePath.create(textbox,"",True,5025,345,0,100,1400,True,0,Arial,8,-2147483643,1)
+gui.F_Main1.cmdSaveDialog.create(button)
+gui.F_Main1.cmdSaveDialog.caption("^")
+gui.F_Main1.cmdSaveDialog.visible(True)
+gui.F_Main1.cmdSaveDialog.size(330,330)
+gui.F_Main1.cmdSaveDialog.zorder(0)
+gui.F_Main1.cmdSaveDialog.position(5400,1400)
+gui.F_Main1.cmdSaveDialog.enabled(True)
+gui.F_Main1.cmdSaveDialog.fontname("Arial")
+gui.F_Main1.cmdSaveDialog.fontsize(8)
+gui.F_Main1.cmdSaveDialog.event(click,cmdsavedialog_click)
+gui.F_Main1.Payweek.create(label,"Pay Week",True,945,255,1,100,300,True,0,Arial,8,-2147483633,0)
+gui.F_Main1.dtpPayWeek.create(datepicker)
+gui.F_Main1.dtpPayWeek.visible(True)
+gui.F_Main1.dtpPayWeek.size(1935,285)
+gui.F_Main1.dtpPayWeek.zorder(0)
+gui.F_Main1.dtpPayWeek.position(100,560)
+gui.F_Main1.dtpPayWeek.enabled(True)
+gui.F_Main1.dtpPayWeek.checkbox(False)
+gui.F_Main1.cmdCreate.create(button)
+gui.F_Main1.cmdCreate.caption("Create")
+gui.F_Main1.cmdCreate.visible(True)
+gui.F_Main1.cmdCreate.size(855,375)
+gui.F_Main1.cmdCreate.zorder(0)
+gui.F_Main1.cmdCreate.position(100,1900)
+gui.F_Main1.cmdCreate.enabled(True)
+gui.F_Main1.cmdCreate.fontname("Arial")
+gui.F_Main1.cmdCreate.fontsize(8)
+gui.F_Main1.cmdCreate.event(click,cmdcreate_click)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uEmpMstr.Define("GSEmpNum",String,Employee)
+Variable.UDT.uEmpMstr.Define("PCEmpNum",String,Comments_3)
+Variable.uGlobal.uEmpMstr.Declare("uEmpMstr")
+Variable.Global.iTotalRegHours.Declare(Float,0)
+Variable.Global.sFileSavePath.Declare(String)
+Variable.Global.iTotalHours.Declare(Float,0)
+Variable.Global.iHolidayTime.Declare(Float,0)
+Variable.Global.iTotalJob_DetailHours.Declare(Float,0)
+Variable.UDT.uEmpHours.Define("GSEMPNUM",String)
+Variable.UDT.uEmpHours.Define("PCEMPNum",String)
+Variable.UDT.uEmpHours.Define("Regular_Hours",String)
+Variable.UDT.uEmpHours.Define("OVT_HOURS",String)
+Variable.UDT.uEmpHours.Define("Holiday_Hours",String)
+Variable.UDT.uEmpHours.Define("Vacation_Hours",String)
+Variable.UDT.uEmpHours.Define("Regular_TIME_ATT_HOURS",String)
+Variable.UDT.uEmpHours.Define("TotalSickHours",String)
+Variable.uGlobal.uEmpHours.Declare("uEmpHours")
+Variable.Global.iTotalTime_Attendance.Declare(Float,0)
+Variable.Global.iTotalSickHours.Declare(Float,0)
+Variable.Global.iTotalVacationHours.Declare(Float,0)
+Variable.Global.sFileName.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.CalcHours.Start
+'Sub will Query the Job_Detail Table to determine the Total Hours
+'Worked on a Job by Each Employee
+
+V.Local.iC.Declare(Long)
+V.Local.sQuery.Declare(String)
+V.Local.sDateStart.Declare(String)
+V.Local.sDateEnd.Declare(String)
+V.Local.sDateStartJOB_DETAIL.Declare(String)
+V.Local.sDateEndJob_Detail.Declare(String)
+V.Local.sDateStartTime_ATT.Declare(String)
+V.Local.sDateEndTime_ATT.Declare(String)
+V.Local.iHours.Declare(Float)
+V.Local.iMinutes.Declare(Float)
+V.Local.iTotalRegularHours.Declare(Float)
+V.Local.iTotalOvertimeHours.Declare(Float)
+V.Local.iRegularTime_Att_Hours.Declare(Float)
+V.Local.iHolidayTime.Declare(Float)
+V.Local.iPTOTime.Declare(Float)
+V.Local.iVacationTime.Declare(Float)
+V.Local.sEarningsCode.Declare(String)
+V.Local.iTimeTest.Declare(Float)
+V.Local.iTemp.Declare(Float)
+
+
+
+'Set date selected to two variables
+V.Local.sDateStart.Set(V.Screen.SS_Form1!dtpBegPayDate.Value)
+V.local.sDateEnd.Set(V.Screen.SS_Form1!dtpEndPayDate.Value)
+
+'format the dates for Pervasive YYMMDD for JOB_DETAIL TABLE
+F.Intrinsic.String.Format(V.Local.sDateStart,"YYMMDD",V.Local.sDateStartJOB_DETAIL)
+F.Intrinsic.String.format(V.Local.sDateEnd,"YYMMDD",V.Local.sDateEndJOB_DETAIL)
+
+'format the dates for Pervasive YYYYMMDD for TIme_ATTENDANCE Table
+F.Intrinsic.String.Format(V.Local.sDateStart,"YYYYMMDD",V.Local.sDateStartTime_ATT)
+F.Intrinsic.String.Format(V.Local.sDateEnd,"YYYYMMDD",V.Local.sDateEndTime_ATT)
+
+'Write the values to a text file, starting with wages, taxes, then deductions
+F.Intrinsic.UI.InvokeWaitDialog("Calculating payroll...","Pay Choice Export")
+
+F.Intrinsic.Control.DoUntil(V.Local.iC,>,V.uGlobal.uEmpMSTR.UBound)
+
+	V.uGlobal.uEmpHours.RedimPreserve(0,V.Local.iC)
+	'show progress bar progression on dialog box
+	F.Intrinsic.UI.ChangeWaitStatus("Calculating payroll...",V.Local.iC,0,V.uGlobal.uEmpMstr.UBound)
+
+	'Wages Query
+	'Regular Hours from Job_Detail Table
+	F.Intrinsic.String.Concat("Select Distinct EMPL, Sum(Hours_Worked)As Total_Hours From Job_Detail Where EMPL = '",V.uGlobal.uEmpMstr(v.Local.iC)!GSEmpNum,"' AND EDITED_WO_DTL <>'R' AND Date_Sequence BETWEEN '",V.Local.sDateStartJob_Detail,"' AND '",V.Local.sDateEndJob_Detail,"' Group By EMPL",V.Local.sQuery)
+	F.odbc.connection!conx.OpenRecordsetRO("rstJob_detail",V.Local.sQuery)
+		'if nothing returned from the table set to zero, else get value
+		F.Intrinsic.Control.If(V.ODBC.conx!rstJob_Detail.EOF,=,True)
+			V.Global.iTotalJob_DetailHours.Set(0)
+		F.Intrinsic.Control.Else
+			V.Global.iTotalJob_detailhours.Set(V.ODBC.conx!rstJob_detail.FieldValTrim!Total_Hours)
+		F.Intrinsic.Control.EndIf
+	'Hours Entered from the Time_Attendance Table
+	F.Intrinsic.String.Concat("Select Employee, Earnings_Code, Sum(Hours_HH) AS Hours, Sum(Hours_MM) As Minutes From Time_Attendance Where Paid = 'Y' AND Rec_Type = 'A' AND Employee = '",V.uGlobal.uEmpMstr(v.Local.iC)!GSEmpNum,"' And Earnings_Code <> '' And Earnings_Code<>'00'  And Date_In>= '",V.Local.sDateStartTime_ATT,"' And Date_Out <= '",V.Local.sDateEndTime_ATT,"' Group By Employee, Earnings_Code Order By Employee, Earnings_Code",V.Local.sQuery)
+	F.ODBC.connection!conx.OpenRecordsetRO("RstTime_Attendance",V.Local.sQuery)
+	F.Intrinsic.Control.DoUntil(V.ODBC.conx!RstTime_Attendance.EOF,=,True)
+	'loop thru all Time_Attendance records for each employee
+	'keeping each earnings_code value separate, and having a running total of all records in Time_Attendance Table
+	'Earnings CODES
+		'01: Regular Time
+		'02: Sick Time
+		'03: Vacation
+		'04: Holiday
+	F.Intrinsic.Control.If(V.ODBC.conx!RstTime_Attendance.EOF,=,True)
+		V.Local.iHours.Set(0)
+		V.Local.iMinutes.Set(0)
+		V.uGlobal.uEmpHours(v.Local.iC)!Regular_Time_att_Hours.Set(0)
+		V.uGlobal.uEmpHours(v.Local.iC)!TotalSickHours.Set(0)
+		V.uGlobal.uEmpHours(v.Local.iC)!Vacation_Hours.Set(0)
+		V.uGlobal.uEmpHours(v.Local.iC)!Holiday_Hours.Set(0)
+		F.Intrinsic.Control.ExitDo
+	F.Intrinsic.Control.Else
+		'Earnings Code to determine what type of time_attendance record hour calculation was entered
+		V.Local.sEarningsCode.Set(V.ODBC.conx!RstTime_Attendance.FieldValTrim!Earnings_Code)
+		'set Hours and Minutes to sum of the seperate values
+		V.Local.iHours.Set(V.ODBC.conx!RstTime_Attendance.FieldValTrim!Hours)
+		V.Local.iMinutes.Set(V.ODBC.conx!RstTime_Attendance.FieldValTrim!Minutes)
+		'must store it minutes as a .00 value, to keep the calculations correct
+		F.Intrinsic.Control.If(V.Local.iMinutes,>=,60)
+			F.Intrinsic.Math.div(V.Local.iMinutes,60,V.Local.iMinutes)
+			'round minutes if necessary
+			F.Intrinsic.Math.Round(V.Local.iMinutes,2,V.Local.iMinutes)
+			F.Intrinsic.String.Split(V.Local.iMinutes,".",V.Local.iminutes)
+			'add the hours value to the hours variable
+			F.Intrinsic.Math.Add(V.Local.iHours,V.Local.iMinutes(0),V.Local.iHours)
+			'set iMinutes to zero, because of conversion
+			V.Local.iMinutes.Set(0)
+			'add the rounded minutes to minutes variable
+			F.Intrinsic.Math.Add(V.Local.iMinutes(1),V.Local.iMinutes,V.Local.iminutes)
+			'if the remaining minutes is under 10, divide by 10 to make it decimal, else divide by 100 so 9 minutes will be represented as .09
+			F.intrinsic.control.if(V.local.iminutes,<,10)
+				F.Intrinsic.Math.Div(V.Local.iMinutes,10,V.Local.iMinutes)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Math.Div(V.Local.iMinutes,100,V.Local.iMinutes)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Div(V.Local.iMinutes,100,V.Local.iMinutes)
+		F.intrinsic.control.endif
+		
+		'Select Case to Determine which Earnings_Code from the Time_attendance table is entered, may be more than one need to loop thru each
+		F.Intrinsic.Control.SelectCase(V.Local.sEarningsCode)
+			F.Intrinsic.Control.Case("01")
+				'Regular Time
+				F.Intrinsic.Math.Add(V.Local.iHours,V.Local.iMinutes,V.Local.iRegularTime_Att_Hours)
+				'running total of Time_attendance hours
+				F.iNtrinsic.Math.Add(V.local.iRegulartime_att_hours,V.global.iTotalTime_Attendance,V.global.itotaltime_attendance)
+			F.Intrinsic.Control.Case("02")
+				'Vacation Time
+				F.Intrinsic.Math.Add(V.Local.iHours,V.Local.iMinutes,V.Global.iTotalSickHours)
+				'Running total Time_Attendance
+				F.Intrinsic.Math.Add(V.Global.iTotalSickHours,V.Global.iTotalTime_Attendance,V.Global.iTotalTime_Attendance)
+			F.Intrinsic.Control.Case("03")
+				'Vacation Time
+				'Set EHD_CODE Earnings CODE to 03
+				F.Intrinsic.Math.Add(V.Local.iHours,V.Local.iMinutes,V.Global.iTotalVacationHours)
+				'Running total Time_Attendance
+				F.Intrinsic.Math.Add(V.Global.iTotalVacationHours,V.Global.iTotalTime_Attendance,V.Global.iTotaltime_attendance)
+			F.Intrinsic.Control.Case("04")
+				'Holiday Time
+				F.Intrinsic.Math.Add(V.Local.iHours,V.Local.iMinutes,V.Global.iHolidayTime)
+				'running total
+				F.Intrinsic.Math.Add(V.Global.iholidaytime,V.Global.iTotalTime_Attendance,V.global.iTotalTime_Attendance)
+			F.Intrinsic.Control.EndSelect
+		F.Intrinsic.Control.EndIf
+		'move to the next record in the table
+		F.ODBC.conx!RstTime_Attendance.MoveNext
+	F.Intrinsic.Control.Loop
+'
+'
+	'Determine the amount of Overtime Hours that may be present from the Job_Detail Hours
+	F.Intrinsic.Control.If(V.Global.iTotalJob_detailhours,>,40)
+		F.Intrinsic.Math.Sub(V.Global.iTotalJob_DetailHours,40,V.Local.iTotalOvertimeHours)
+		'set overtime hours to the udt EmpHours OVT_HOURS field
+		V.uGlobal.uEmpHours(v.Local.iC)!OVT_HOURS.Set(V.Local.iTotalOvertimeHours)
+	F.Intrinsic.Control.Else
+		'set overtime hours to zero if TotalJob_DetailHours is not over 40
+		V.Local.iTotalOvertimeHours.Set(0)
+	F.Intrinsic.Control.EndIf
+
+	'This will subtract the overtime hours, if any from the totaljob_detail variable.
+	F.Intrinsic.Math.Sub(V.Global.iTotalJob_DetailHours,V.Local.iTotalOvertimeHours,V.Global.iTotalJob_DetailHours)
+	'Add both the total Job_Detail Hours after overtime and total Time_Attendance Hours for the employee into a time test variable
+	F.Intrinsic.Math.Add(V.Global.iTotalJob_DetailHours,V.Global.iTotalTime_Attendance,V.Local.iTimeTest)
+	'If the time test variable is over or equal to 40 we need to seperate to find the true regular time from Job_Detail
+	'If time test variable is less than 40, program will not perform any subtractions
+	'Example: If iTimeTest  is 40, and Time_Attendance has a value of 16, true regular hours will be 24, and 16 hours are separated as vacation,sick,or holiday dependingon earnings_code
+	F.Intrinsic.Control.If(V.Local.iTimeTest,>=,40)
+		'Overtime May Occur with these two values as well, EX: Worked 32.90 Hours of Regular, Plus 8 Hours Holiday, Overtime is present and needs to be accounted for
+		'assuming no overtimes hours exist in Job_Detail
+		F.Intrinsic.Math.Sub(V.Local.iTimeTest,40,V.Local.iTotalOvertimeHours)
+		V.uGlobal.uEmpHours(v.Local.iC)!OVT_HOURS.Set(V.Local.iTotalOvertimeHours)
+		'reduce timetest by the amount over 40
+		'F.Intrinsic.Math.Sub(V.Local.iTimeTest,V.Local.iTotalOvertimeHours,V.Local.iTimeTest)
+		'To Prevent Negative values, only subtract if total Job_Detail hours is greater than or equal to Time_Attendance
+		'Else Keep the time values correct. EX: If Total Job_Detail is 16, and Time_Attendance is 24, keep the values separate with out subtracting them. Total Regular Hours will stay the same
+		F.Intrinsic.Control.If(V.Global.iTotalTime_Attendance,<=,V.Global.iTotalJob_DetailHours)
+			'iTimeTest is Job_Detail and Time_Attendance totals combined, subtract the Time Attendance value to get true job_detail hours
+			F.Intrinsic.Math.Sub(V.Local.iTimeTest,V.global.itotalTime_Attendance,V.local.iTotalOvertimeHours,V.Global.iTotalJob_DetailHours)
+		F.Intrinsic.Control.ElseIf(V.Global.iTotalJob_DetailHours,<=,0)
+			'set to zero
+			V.Global.iTotalJob_DetailHours.Set(0)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	'write all information to the UDT EmpHours in each specific field
+	V.uGlobal.uEmpHours(v.Local.iC)!GSEMPNUM.Set(V.uGlobal.uEmpMstr(v.Local.iC)!GSEmpNum)
+	V.uGlobal.uEmpHours(v.Local.iC)!PCEMPNum.Set(V.uGlobal.uEmpMstr(v.Local.iC)!PCEmpNum)
+	V.uGlobal.uEmpHours(v.Local.iC)!Regular_Hours.Set(V.Global.iTotalJob_DetailHours)
+	F.Intrinsic.Control.If(V.Local.iTotalOvertimeHours,=,0)
+		V.uGlobal.uEmpHours(v.Local.iC)!OVT_HOURS.Set(0)
+	F.Intrinsic.Control.EndIf
+	'set each amount from the Time_Attendance table
+	V.uGlobal.uEmpHours(v.Local.iC)!Regular_TIME_ATT_HOURS.Set(V.Local.iRegularTime_Att_Hours)
+	V.uGlobal.uEmpHours(v.Local.iC)!TotalSickHours.Set(V.Global.iTotalSickHours)
+	V.uGlobal.uEmpHours(v.Local.iC)!Vacation_Hours.Set(V.Global.iTotalVacationHours)
+	V.uGlobal.uEmpHours(v.Local.iC)!Holiday_Hours.Set(V.Global.iHolidayTime)
+
+	'set the variables back to zero for next employee
+	'increment iC for next employee
+	'close recordsets
+	V.Global.iTotalJob_DetailHours.Set(0)
+	V.Local.iTotalOvertimeHours.Set(0)
+	V.Global.iTotalTime_Attendance.Set(0)
+	V.Local.iRegularTime_Att_Hours.Set(0)
+	V.Global.iTotalVacationHours.Set(0)
+	V.Global.iTotalSickHours.Set(0)
+	V.Global.iHolidayTime.Set(0)
+	V.local.iHours.Set(0)
+	V.Local.iMinutes.Set(0)
+	V.Local.iTemp.Set(0)
+	F.ODBC.Connection!conx.CloseRecordsets
+	F.Intrinsic.Math.Add(V.Local.iC,1,V.Local.iC)
+
+F.Intrinsic.Control.Loop
+
+'call the text create sub to create the string needed for text file
+F.Intrinsic.Control.CallSub(Txtcreate)
+
+
+
+
+
+
+Program.Sub.CalcHours.End
+
+program.sub.cmdsavedialog_click.start
+'Sub Routine that will ask the user where they would like to save the
+'.TXT file for PayChoice upload
+
+V.Local.sDate.Declare(String)
+V.Local.sDate.Set(V.Ambient.Date)
+
+F.Intrinsic.String.Format(V.Local.sDate,"MM-DD-YY",V.Local.sDate)
+
+
+F.Intrinsic.UI.ShowSaveFileDialog(V.Caller.FilesDir,".txt ",V.global.sFileSavePath)
+F.Intrinsic.Control.If(V.global.sFileSavePath,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat(V.Global.sFileSavePath,"_",V.local.sdate,".txt",V.Global.sFileSavePath)
+	F.Intrinsic.File.GetFileNameFromFQN(V.Global.sFileSavePath,V.global.sFileName)
+	Gui.SS_Form1.txtFileLocation.Text(V.Global.sFileName)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+program.sub.cmdsavedialog_click.end
+
+program.sub.cmdcreate_click.start
+'Subroutine that will load the uEmpMSTR with all employee IDs, both the GS, and Paychoice employee numbers
+
+'Error Check to verify file location has been chosen
+F.Intrinsic.Control.If(V.Screen.SS_Form1!dtpBegPayDate.Value,>,V.Screen.SS_Form1!dtpEndPayDate.Value)
+	F.Intrinsic.UI.Msgbox("Ending Pay Period Date must be after Beginning Pay Period Date","DATE ERROR")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form1!txtFileLocation.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Please choose a Save Location.","Missing Save Location")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Employee Number query and store into UDT
+'Employee Number used by PayChoice for Renco Employees will be stored in the Comment_3 Field
+F.ODBC.Connection!conx.OpenRecordSetRO("rst","Select Employee, Comments_3 From Employee_MSTR Where Date_Termination = '000000' ORDER BY Employee")
+F.Intrinsic.Variable.LoadUDTFromRecordset("conx","rst","v.uglobal.uEmpMSTR","false")
+F.ODBC.conx!rst.Close
+
+'subroutine that will calculate Regular, Overtime, and Time_Attendance hours for each employee
+F.Intrinsic.Control.CallSub(Calchours)
+
+
+	
+
+
+
+
+program.sub.cmdcreate_click.end
+
+program.sub.ss_form1_unload.start
+'close the connection
+'end the program
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+
+program.sub.ss_form1_unload.end
+
+Program.Sub.TXTCreate.Start
+'SubRoutine that will format the hour information from the uEmpHours UDT
+'Write formatted data to the text file specified by PayChoice
+
+V.Local.iC.Declare(Float)
+V.Local.sCompCode.Declare(String)
+V.Local.sEmpCode.Declare(String)
+V.Local.sTextLine.Declare(String)
+V.Local.sFormatRegHrs.Declare(String)
+V.Local.sFormatOvtHrs.Declare(String)
+V.Local.iRetHandle.Declare(Float)
+V.Local.sPlusFill.Declare(String)
+V.Local.sMessage.Declare(String)
+V.Local.stemp.Declare(String)
+V.Local.sRegularHoursTXT.Declare(String)
+V.Local.sOVTTXT.Declare(String)
+V.local.sRegHrs_Time_ATT_TXT.declare(String)
+V.Local.sVacation_TXT.Declare(String)
+V.Local.sPTO_TXT.Declare(String)
+V.Local.sHoliday_TXT.Declare(String)
+V.Local.bFileExists.Declare(Boolean)
+
+'delete any udt elements that have zero values for all variables to eliminate employees with no hours entered
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uEmpHours!Regular_Hours,0,V.uGlobal.uEmpHours!OVT_HOURS,0,V.uglobal.uEmpHours!Regular_TIME_ATT_HOURS,0,V.uGlobal.uEmpHours!Vacation_Hours,0,V.uGlobal.uEmpHours!Vacation_Hours,0,V.uGlobal.uEmpHours!TotalSickHours,0,V.uGlobal.uEmpHours!Holiday_Hours,0)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uEmpHours)
+
+F.Intrinsic.Control.If(V.uGlobal.uEmpHours.UBound,=,-1)
+	F.Intrinsic.UI.ChangeWaitStatus("No payroll records found within date range. Ending program.")
+	F.Intrinsic.UI.Sleep(1)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.Else
+	'message that will be used when the file is being built, for the wait dialog
+	F.Intrinsic.String.Concat("Creating ",V.Global.sFileName,". Please wait.",V.Local.smessage)
+F.Intrinsic.Control.EndIf
+
+'loop thru UDT and write a text line for each employee information
+
+'BCL_CODE: G608, company code for Renco Machine established by Pay Choice
+'PCEmpNum field for EMP_NUM, PC EMP NUM is different from GS Emp #
+'EHD_CODE: 01 for Regular Pay
+'EHD_CODE: 02 for Overtime Pay
+'EHD_CODE: 03 for Vacation Pay
+'EHD_CODE: 04 for Sick Pay
+'EHD_CODE: 05 for Holiday Time
+'EHD_TYPE: 'H' Always Hours
+'Amount: separate lines for each EHD_CODE, format value as "0000000.00"
+'Plus_Minus: Always will be '+'
+
+V.Local.iC.Set(0)
+V.Local.sCompCode.Set("G608")
+
+'Rpad the variable with the plus sign to account for the optional fields that are not being used, must be filled with blank spaces
+'Also include zeroes formated for the rate field which is also blank
+V.Local.sPlusFill.Set("+000.0000")
+F.Intrinsic.String.RPad(V.Local.sPlusFill," ",56,V.Local.sPlusFill)
+
+'Loop thru the UDT uEmpMSTR
+'and create the text line for each record
+
+F.Intrinsic.Control.For(V.Local.iC,0,V.uGlobal.uEmpHours.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMessage,V.Local.iC,0,V.uGlobal.uEmpHours.UBound)
+
+	'Format the Employee Number to 4 spaces, if any are blank
+	'F.Intrinsic.String.Format(v.uGlobal.uEmpHours(v.Local.iC)!PCEMPNum,"0000",v.Local.sEmpCode)
+	F.Intrinsic.String.LPad(V.uGlobal.uEmpHours(v.Local.iC)!PCEMPNum,"0",4,V.Local.sEmpCode)
+
+	'Regular Time from job_Detail line
+	F.Intrinsic.String.Concat(V.Local.sCompCode,V.local.sEmpCode,V.Local.sRegularHoursTXT)
+	''blank division number and EHD CODE OF 01 for Regular Time, H for Hours 5 total spaces
+	F.Intrinsic.string.Concat(V.Local.sRegularHoursTXT,"  01H",V.Local.sRegularHoursTXT)
+	'Amount format to 10 size zero fill
+	F.Intrinsic.string.Format(V.uGlobal.uEmpHours(v.Local.iC)!Regular_Hours,"0000000.00",V.Local.stemp)
+	'String concat the temp value and a Plus fill value
+	F.Intrinsic.String.Concat(V.Local.sRegularHoursTXT,V.Local.stemp,V.Local.sPlusFill,V.Local.sRegularHoursTXT)
+	
+	'Overrtime Hours Job EHD CODE of 02
+	F.Intrinsic.String.concat(V.Local.sCompCode,V.local.sEmpCode,V.Local.sOVTTXT)
+	'blank division number and EHD code of 02 for overtime and H for hours
+	F.Intrinsic.String.Concat(V.Local.sOVTTXT,"  02H",V.Local.sOVTTXT)
+	'amount of 10 spaces for overtime hours
+	F.Intrinsic.String.Format(V.uGlobal.uEmpHours(v.Local.iC)!OVT_HOURS,"0000000.00",V.Local.stemp)
+	F.Intrinsic.String.Concat(V.Local.sOVTTXT,V.Local.stemp,V.Local.sPlusFill,V.Local.sOVTTXT)
+	
+	'Vacation Hours,EHD CODE 03
+	F.Intrinsic.String.Concat(V.Local.sCompCode,V.local.sEmpCode,V.Local.sVacation_TXT)
+	F.Intrinsic.String.concat(V.Local.sVacation_TXT,"  03H",V.Local.sVacation_TXT)
+	F.Intrinsic.String.Format(V.uGlobal.uEmpHours(v.Local.iC)!Vacation_Hours,"0000000.00",V.Local.stemp)
+	F.Intrinsic.String.Concat(V.Local.sVacation_TXT,V.Local.stemp,V.Local.sPlusFill,V.Local.sVacation_TXT)
+	
+	'Sick Hours, EHD CODE 04
+	F.Intrinsic.String.Concat(V.Local.sCompCode,V.local.sEmpCode,V.Local.sPTO_TXT)
+	F.Intrinsic.String.Concat(V.Local.sPTO_TXT,"  04H",V.Local.sPTO_TXT)
+	F.Intrinsic.String.Format(V.uGlobal.uEmpHours(v.Local.iC)!TotalSickHours,"0000000.00",V.Local.stemp)
+	F.Intrinsic.String.Concat(V.Local.sPTO_TXT,V.Local.stemp,V.Local.sPlusFill,V.Local.spto_txt)
+	
+	'Holiday Hours EHD CODE 05
+	F.Intrinsic.String.Concat(V.Local.sCompCode,V.local.sEmpCode,V.Local.sHoliday_TXT)
+	F.Intrinsic.String.Concat(V.Local.sHoliday_TXT,"  05H",V.Local.sHoliday_TXT)
+	F.Intrinsic.string.Format(V.uGlobal.uEmpHours(v.Local.iC)!Holiday_Hours,"0000000.00",V.Local.stemp)
+	F.Intrinsic.String.Concat(V.Local.sHoliday_TXT,V.Local.stemp,V.Local.sPlusFill,V.Local.sHoliday_TXT)
+	
+'concat all the separate EHD_CODE groups  together, seperated by new lines
+	F.Intrinsic.String.Concat(V.Local.sTextLine,V.Local.sRegularHoursTXT,V.Ambient.NewLine,V.Local.sOVTTXT,V.Ambient.NewLine,V.Local.sVacation_TXT,V.Ambient.NewLine,V.Local.sPTO_TXT,V.Ambient.NewLine,V.local.sHoliday_TXT,V.Ambient.NewLine,V.Local.sTextLine)
+F.Intrinsic.Control.Next(V.Local.iC)
+
+'check if the file exists by same name
+'If it does delete the file
+'so new text can be written to the file
+F.Intrinsic.File.Exists(V.Global.sFileSavePath,V.Local.bFileExists)
+F.Intrinsic.Control.If(V.Local.bFileExists,=,True)
+	F.Intrinsic.String.Concat(V.Global.sFileName," already exists in selected location. Rewriting file with new data. ",V.Local.sMessage)
+	F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMessage)
+	F.Intrinsic.UI.Sleep(2)
+	F.Intrinsic.File.DeleteFile(V.Global.sFileSavePath)
+F.Intrinsic.Control.EndIf
+
+'Write the the text line to the text file chosen
+F.Intrinsic.File.String2File(V.Global.sFileSavePath,V.Local.sTextLine)
+'open the file for verification
+Function.Intrinsic.File.GetHandle(V.Local.iRetHandle)
+F.Intrinsic.String.Concat(V.global.sFileName," has been successfully saved.",V.Local.smessage)
+F.Intrinsic.UI.ChangeWaitStatus(V.Local.smessage)
+F.Intrinsic.UI.Sleep(1)
+F.Intrinsic.UI.CloseWaitDialog
+'F.Intrinsic.Task.ShellExec(V.Local.iRetHandle,"",V.Global.sFileSavePath,"","",1)
+F.Intrinsic.Control.CallSub(Ss_form1_unload)
+
+
+Program.Sub.TXTCreate.End
+
+Program.Sub.Main.Start
+'Quote 3989
+'coded by TRT
+'10/26/12
+'for Renco Machine Company Inc.
+
+'Program that will format a text file to be used by PayChoice to enter time information for employees
+'Queries the Job_Detail, and Time_Attendance tables and determines the amount of Regular and OVertime Hours for employee
+'Writes the information to a text file, that requires particular format established by PayChoice
+'BCL_Code: Size 4 Company Number Renco's Company code is G608 in PayChoices database
+'Emp_NUM: Size 4 Employee Number
+'*EMP_DIV: Size 2 Employee Division Number
+'EHD_CODE: Size 2 Hours Wages and Deductions Code, 01 for Regular, 02 for Overtime, 03 for vacation, 04 for sick, and 05 for Holiday time
+'EHD_TYPE: Size 1 Always H
+'Amount: Size 10, formatted value to 000000.00, zero fill blank spaces
+'Plus_Minus: Size 1: Always '+'
+'*Rate: Size 8  blank fill with 00000.00
+'*Labor_Num: size 12 Blank-fill unused spaces
+'*Clock_Num : size 6 Employee clock/badge #
+'*Emp_Nam/SSN: Size 30, blank fill, not used for Renco since uploading via Employee Number
+'*: OPtional Data elements(Will not be used for this program) but still need to be blank filled or zero filled
+
+'Program functions
+'-Ask the user a for a save location, let user type in file name
+'-concat the date and .txt to the file to save as a .txt document
+'-Calulate Hours in the Job_Detail, and Time_Atendace tables for each employee
+'Paying attention to Regular, Overtime, Holiday, Sick, Vacation, and separating each hours into their own EHD_CODE
+'Write a text file based on the format supplied by the PayChoice company.
+'If the file with the same name already exists, delete the file.
+
+
+
+'open connection
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'lock the text field that shows the file path
+Gui.SS_Form1.txtFileLocation.Enabled(False)
+'show the form
+Gui.SS_Form1..Show
+
+Program.Sub.Main.End
+
+
